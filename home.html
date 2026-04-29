@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Jomhuria' rel='stylesheet'>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <title>Home</title>
+        <style>
+            body {
+                font-family: 'Jomhuria';
+                background-color: rgb(34,34,34);
+                margin: 0;
+                white-space: nowrap;
+                width: 100vw;
+                height: 100vh;
+                font-size: 48px;
+            }
+            #logo {
+                font-size: 64px;
+            }
+            h1, p{
+                margin: 0;
+                font-size: 64px;
+            }
+            .section {
+                background-color: #C7C7C7;
+                flex: auto;
+                margin: 3px;
+                border-radius: 10px;
+            }
+            .log {
+                background-color:rgb(34,34,34);
+                border-radius: 10px;
+                margin: 2.5px 5px 2.5px 5px;
+                font-size: 24px;
+                color: white;
+            }
+            .log-btn {
+                background-color:#FFD063;
+                border-radius: 10px;
+                border-style: hidden;
+                font-size: 24px;
+            }
+            hr {
+                padding: 10px;
+                width: 30%;
+            }
+            .modal-content {
+                background-color: rgb(34,34,34);
+            }
+            .modal-title{
+                color:white;
+            }
+            .progress {
+                height: 35px;
+                font-size: 24px;
+            }
+            .btn-close {
+                font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar" style="background-color: rgb(34,34,34); padding: 0;">
+            <div class="container-fluid" style="margin-left: 15px;">
+                <a class="navbar-brand" style="display: flex;">
+                <h1 style="color: white;" id="logo">Spend</h1>
+                <h1 style="color: #FFD063;" id="logo">NOTE</h1>
+                </a>
+            </div>
+        </nav>
+        <nav class="navbar" style="padding: 0;">
+            <div style="background-color: #FFD063; display: flex; width: 100%;">
+                <a class="btn" role="button" style="font-size: 64px; height: 74px; margin-left: 5px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop4">☰</a>
+                <div style="width: 100%;"></div>
+                <div class="btn-group" style="padding: 5px 5px 5px 0px;" role="group">
+                    <button id="balance" type="button"  class="btn btn-primary" style="background-color: rgb(34,34,34); border-style: solid; border-color: #FFD063; font-size: 32px; border-width: 2px;">Remaining Balance: P1000.00</button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" style="background-color: rgb(34,34,34); border-style: solid; border-color: #FFD063; font-size: 32px; border-width: 2px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Update
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- Update Balance Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="btn-close position-absolute top-0 end-0" data-bs-dismiss="modal" aria-label="Close" style="margin: 10px; background-color: white;"></button>
+                        <h1 class="modal-title d-flex justify-content-center" id="staticBackdropLabel">Update Balance</h1>
+                        <div class="d-flex justify-content-center">
+                            <h1 class="modal-title" style="color: #C7C7C7; margin-right: 10px; margin-bottom: -30px;">₱</h1>
+                            <input id="input-update" type="number" placeholder="  Enter Amount" class="log" style="border-style: hidden; background-color: #C7C7C7;">
+                            <button id="btn-update"type="button" class="btn btn-secondary log-btn" data-bs-dismiss="modal" style="margin-left: 5px; padding: 0px 20px 0px 20px;">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Manage Modal -->
+        <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-content">
+                        <div class="modal-header" style="border-style: hidden;">
+                            <h1 class="modal-title" id="staticBackdropLabel">Manage Categories</h1>
+                            <div class="position-absolute top-0 end-0" role="group">
+                                <button class="btn btn-success" style=" height: 32px; width: 32px; margin-top: -2.5px;"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="margin: 10px; background-color: white;"></button>
+                            </div>
+                        </div>
+                        <div class="modal-body" style="display: flex; flex-direction: row;">
+                            <h1 style="color:white;">Category 1</h1>
+                            <div class="position-absolute top-0 end-0" role="group">
+                                <button class="btn btn-warning" style=" height: 32px; width: 32px; margin-top: 15px; background-color: #FFD063;"></button>
+                                <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close" style="margin: 10px; background-color: #DD7979; height: 24px; width: 24px;  margin-top: 25px; margin-right: 25px;"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Set Goal Modal -->
+        <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="btn-close position-absolute top-0 end-0" data-bs-dismiss="modal" aria-label="Close" style="margin: 10px; background-color: white;"></button>
+                        <h1 class="modal-title d-flex justify-content-center" id="staticBackdropLabel">Set Saving Goal</h1>
+                        <div class="d-flex justify-content-center">
+                            <h1 class="modal-title" style="color: #C7C7C7; margin-right: 10px; margin-bottom: -30px;">₱</h1>
+                            <input id="input-goal" type="number" placeholder="  Enter Amount" class="log" style="border-style: hidden; background-color: #C7C7C7;">
+                            <button id="btn-goal"type="button" class="btn btn-secondary log-btn" data-bs-dismiss="modal" style="margin-left: 5px; padding: 0px 20px 0px 20px;">Set</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Set Budget Modal -->
+        <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="btn-close position-absolute top-0 end-0" data-bs-dismiss="modal" aria-label="Close" style="margin: 10px; background-color: white;"></button>
+                        <h1 class="modal-title d-flex justify-content-center" id="staticBackdropLabel">Set Budget Goal</h1>
+                        <div class="d-flex justify-content-center">
+                            <h1 class="modal-title" style="color: #C7C7C7; margin-right: 10px; margin-bottom: -30px;">₱</h1>
+                            <input id="input-budget" type="number" placeholder="  Enter Amount" class="log" style="border-style: hidden; background-color: #C7C7C7;">
+                            <button id="btn-budget"type="button" class="btn btn-secondary log-btn" data-bs-dismiss="modal" style="margin-left: 5px; padding: 0px 20px 0px 20px;">Set</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- TODO: Programmatically build this part -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-2 section">
+                    <h1 style="padding-left: 10px;">Notes / Wishlists</h1>
+                    <h3>1. Eggs</h3>
+                    <h3>2. Pork cuts</h3>
+                    <h3>3. Shampoo</h3>
+                    <h3>4. Dishwashing soap</h3>
+                    <h3>5. Rice</h3>
+                    <h3>6. Toilet paper</h3>
+                </div>
+                <div class="col-lg-6 section">
+                    <h1 style="padding-left: 10px;">Spending Analytics</h1>
+                    <div class="row">
+                        <div class="row">
+                            <h1 id="budget" class="col-12" style="width: 100%; text-align: center;">Weekly Budget: P1000</h1>
+                            <div class="col-sm-2">Sunday</div>
+                            <div class="col-sm-10" style="padding-top: 15px;">
+                                <div class="progress" role="progressbar" ria-valuemin="0" aria-valuemax="100" style="background-color: #C7C7C7;">
+                                    <div id="progress-sun" class="progress-bar" style="width: 100%; background-color: #FF6363; color: black;">-90</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">Monday</div>
+                            <div class="col-sm-10" style="padding-top: 15px;">
+                                <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="background-color: #C7C7C7;">
+                                    <div id="progress-mon" class="progress-bar" style="width: 75%; background-color: #FFD063; color: black;">+75</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">Teusday</div>
+                            <div class="col-sm-10" style="padding-top: 15px;">
+                                <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="background-color: #C7C7C7;">
+                                    <div id="progress-teu" class="progress-bar" style="width: 25%; background-color: #FFD063; color: black;">+25</div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="row">
+                            <div class="col-sm-2">Wednesday</div>
+                            <div class="col-sm-10" style="padding-top: 15px;">
+                                <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="background-color: #C7C7C7;">
+                                    <div id="progress-wed" class="progress-bar" style="width: 45%; background-color: #FF6363; color: black;">-45</div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="row">
+                            <div class="col-sm-2">Thursday</div>
+                            <div class="col-sm-10" style="padding-top: 15px;">
+                                <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="background-color: #C7C7C7;">
+                                    <div id="progress-thu" class="progress-bar" style="width: 33%; background-color: #FF6363; color: black;">-33</div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="row">
+                            <div class="col-sm-2">Friday</div>
+                            <div class="col-sm-10" style="padding-top: 15px;">
+                                <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="background-color: #C7C7C7;">
+                                    <div id="progress-fri" class="progress-bar" style="width: 100%; background-color: #FFD063; color: black;">+100</div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="row">
+                            <div class="col-sm-2">Saturday</div>
+                            <div class="col-sm-10" style="padding-top: 15px;">
+                                <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="background-color: #C7C7C7">
+                                    <div id="progress-sat" class="progress-bar" style="width: 0%; background-color: #FFD063; color: black;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3" style="padding-left: 0px; padding-right: 5px;">
+                    <div class="section container-fluid">
+                        <div style="padding: 0px 10px 190px 10px;">
+                            <h1>Quick Log</h1>
+                            <div class="row justify-content-md-center">
+                                <input id="input-log-desc" type="text" placeholder="  Expense Description" class="log col-12">
+                                <input id="input-log-amount" type="number" placeholder="  Amount" class="log  col-12">
+                                <input id="input-log-date" type="text" placeholder="  Date" class="log  col-12">
+                                <div class="container-fluid col-lg-8" style="padding: 0px; margin-left: 5px;">
+                                    <select id="input-log-category" class="log" style="margin-left: 0px; margin-top: 10px; color:#5c5c5c; width: 100%;">
+                                        <option>Category 1</option>
+                                        <option>Category 2</option>
+                                        <option>Category 3</option>
+                                    </select>
+                                </div>
+                                <div class="container-fluid col-lg-3" style="margin: 5px;">
+                                    <button class="log-btn container-fluid" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">Manage</button>
+                                </div>
+                                <div class="container-fluid" style="margin: 5px;">
+                                    <button id="btn-log" class="log-btn container-fluid">Log Expense</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="container-fluid section" style="margin-top: 5px;">
+                        <div style="padding: 0px 10px 10px 10px;">
+                            <div class="row">
+                                <h1 class="col-6">Saving goal:</h1>
+                                <h1 id="goal" class="col-6" style="text-align: end;">P0</h1>
+                            </div>
+                            <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="background-color: rgb(34,34,34);">
+                                <div id="progress-goal" class="progress-bar" style="width: 0%; background-color: #FFD063; color: black;">0%</div>
+                            </div>
+                                <button class="log-btn container-fluid" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Set Goal</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            // Set daily budget
+            function refreshAnalytics() {
+                let days = ['sun','mon','teu','wed','thu','fri','sat'];
+                for(let i = 0; i < days.length; i++){
+                    let budget = Math.floor(document.getElementById("budget").innerText.split("P")[1]/7);
+                    let day = "progress-" + days[i];
+                    document.getElementById(day).style.setProperty("background-color", "#FFD063");
+                    document.getElementById(day).innerText = budget;
+                    document.getElementById(day).style.setProperty("width", budget + "%");
+                }
+            }
+            window.onload = refreshAnalytics();
+                        
+            // Updating Balance
+            document.getElementById("btn-update").onclick = function() {
+                document.getElementById("balance").innerText = "Remaining Balance: P" + document.getElementById("input-update").value;
+                
+                // Update Savings Goal
+                if(document.getElementById("goal").innerText.split("P")[1] != 0) {
+                    let num = document.getElementById("balance").innerText.split("P")[1]/document.getElementById("goal").innerText.split("P")[1]*100;
+                    if(num > 100) { num = 100; }
+                    document.getElementById("progress-goal").innerText = num + "%";
+                    document.getElementById("progress-goal").style.setProperty("width", num + "%");
+                }
+            }
+            // Setting Goal
+            document.getElementById("btn-goal").onclick = function() {
+                document.getElementById("goal").innerText = "P" + document.getElementById("input-goal").value;
+                let progress = document.getElementById("balance").innerText.split("P")[1]/document.getElementById("goal").innerText.split("P")[1]*100;
+                if(progress > 100) { progress = 100; }
+                document.getElementById("progress-goal").innerText = progress + "%";
+                document.getElementById("progress-goal").style.setProperty("width", progress + "%");
+            }
+            // Setting Budget
+            document.getElementById("btn-budget").onclick = function() {
+                document.getElementById("budget").innerText = "Weekly Budget: P" + document.getElementById("input-budget").value;
+                document.getElementById("balance").innerText = "Remaining Balance: P" + document.getElementById("input-budget").value;
+                refreshAnalytics();
+            }
+            // Log Expense
+            document.getElementById("btn-log").onclick = function() { 
+                let expense =  document.getElementById("input-log-amount").value;
+                let budget = Math.floor(document.getElementById("budget").innerText.split("P")[1]/7);
+                let output = budget-expense;
+                // Set Bar
+                let day = "progress-" + document.getElementById("input-log-date").value.substring(0,3).toLowerCase();
+                let sign = "+";
+                document.getElementById(day).style.setProperty("background-color", "#FFD063");
+                if(output < 0){
+                    sign = "";
+                document.getElementById(day).style.setProperty("background-color", "#FF6363");
+                }
+                document.getElementById(day).innerText = sign + output;
+                document.getElementById(day).style.setProperty("width", Math.abs(output) + "%");
+                // Subtract from Balance
+                let remaining = document.getElementById("balance").innerText.split("P")[1] - expense;
+                document.getElementById("balance").innerText = "Remaining Balance: P" + remaining;
+                // Update Savings Goal
+                let progress = document.getElementById("balance").innerText.split("P")[1]/document.getElementById("goal").innerText.split("P")[1]*100;
+                if(progress > 100) { progress = 100; }
+                document.getElementById("progress-goal").innerText = progress + "%";
+                document.getElementById("progress-goal").style.setProperty("width", progress + "%");
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+    </body>
+</html>
