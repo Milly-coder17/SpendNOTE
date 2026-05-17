@@ -1,0 +1,76 @@
+body {
+    font-family: 'Jomhuria';
+    background-color: rgb(34,34,34);
+    margin: 0;
+    white-space: nowrap;
+    width: 100vw;
+    height: 100vh;
+    font-size: 48px;
+}
+#logo {
+    font-size: 64px;
+}
+h1, p{
+    margin: 0;
+    font-size: 64px;
+}
+.section {
+    background-color: #C7C7C7;
+    flex: auto;
+    margin: 3px;
+    border-radius: 10px;
+}
+.log {
+    background-color:rgb(34,34,34);
+    border-radius: 10px;
+    margin: 2.5px 5px;
+    font-size: 24px;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    height: 50px;
+    padding: 0 15px;
+    line-height: 50px;
+}
+.log select,
+.log textarea {
+    color: white;
+}
+#input-log-category {
+    height: 50px;
+    line-height: 50px;
+}
+.log-btn {
+    background-color:#FFD063;
+    border-radius: 10px;
+    border-style: hidden;
+    font-size: 24px;
+    width: 100%;
+    padding: 0 16px;
+    height: 50px;
+    margin: 2.5px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 24px;
+}
+.log-btn.w-100 {
+    margin: 0;
+}
+hr {
+    padding: 10px;
+    width: 30%;
+}
+.modal-content {
+    background-color: rgb(34,34,34);
+}
+.modal-title{
+    color:white;
+}
+.progress {
+    height: 35px;
+    font-size: 24px;
+}
+.btn-close {
+    font-size: 16px;
+}

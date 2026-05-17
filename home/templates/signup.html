@@ -1,0 +1,38 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <title>SpendNOTE</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="signUpModal">
+      <h1>Spend<span class="NOTE">NOTE</span></h1>
+      <h2>Sign Up</h2>
+      <form method="POST" id="signUpForm">
+        {% csrf_token %}
+
+        <input type="text" name="username" placeholder="Username" required />
+
+        <input type="email" name="email" placeholder="Email" required />
+
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+
+        <button type="submit" id="createAccBtn">Create Account</button>
+
+        <a href="/" id="loginAccBtn">Back to login</a>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
