@@ -1,5 +1,5 @@
 {% load static%}
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <link
@@ -12,17 +12,33 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
-    <title>Home</title>
+    <title>SpendNOTE Dashboard</title>
     <meta name="csrf-token" content="{{ csrf_token }}" />
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
   </head>
   <body>
     <nav class="navbar" style="background-color: rgb(34, 34, 34); padding: 0">
-      <div class="container-fluid" style="margin-left: 15px">
-        <a class="navbar-brand" style="display: flex">
-          <h1 style="color: white" id="logo">Spend</h1>
-          <h1 style="color: #ffd063" id="logo">NOTE</h1>
+      <div class="container-fluid" style="margin-left: 15px; display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+        <a class="navbar-brand" style="display: flex; align-items: center; gap: 0.25rem;">
+          <h1 style="color: white; margin: 0;" id="logo">Spend</h1>
+          <h1 style="color: #ffd063; margin: 0;" id="logo">NOTE</h1>
         </a>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          style="
+            background-color: gray;
+            border-style: solid;
+            border-color: #ffd063;
+            font-size: 32px;
+            border-width: 2px;
+            color: white;
+            margin-right: 15px;
+          "
+          onclick="window.location.href='/logout/'"
+        >
+          Logout
+        </button>
       </div>
     </nav>
     <nav class="navbar" style="padding: 0">
@@ -101,7 +117,7 @@
                 class="modal-title"
                 style="color: #c7c7c7; margin-right: 10px; margin-bottom: -30px"
               >
-                ₱
+                P
               </h1>
               <input
                 id="input-update"
@@ -119,68 +135,6 @@
               >
                 OK
               </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Manage Modal -->
-    <div
-      class="modal fade"
-      id="staticBackdrop2"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
-      tabindex="-1"
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header" style="border-style: hidden">
-            <h1 class="modal-title" id="staticBackdropLabel">
-              Manage Categories
-            </h1>
-            <div class="position-absolute top-0 end-0" role="group">
-              <button
-                class="btn btn-success"
-                style="height: 32px; width: 32px; margin-top: -2.5px"
-              ></button>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-                style="margin: 10px; background-color: white"
-              ></button>
-            </div>
-          </div>
-          <div class="modal-body" style="display: flex; flex-direction: row">
-            <h1 style="color: white">Category 1</h1>
-            <div class="position-absolute top-0 end-0" role="group">
-              <button
-                class="btn btn-warning"
-                style="
-                  height: 32px;
-                  width: 32px;
-                  margin-top: 15px;
-                  background-color: #ffd063;
-                "
-              ></button>
-              <button
-                type="button"
-                class="btn btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-                style="
-                  margin: 10px;
-                  background-color: #dd7979;
-                  height: 24px;
-                  width: 24px;
-                  margin-top: 25px;
-                  margin-right: 25px;
-                "
-              ></button>
             </div>
           </div>
         </div>
@@ -218,7 +172,7 @@
                 class="modal-title"
                 style="color: #c7c7c7; margin-right: 10px; margin-bottom: -30px"
               >
-                ₱
+                P
               </h1>
               <input
                 id="input-goal"
@@ -273,7 +227,7 @@
                 class="modal-title"
                 style="color: #c7c7c7; margin-right: 10px; margin-bottom: -30px"
               >
-                ₱
+                P
               </h1>
               <input
                 id="input-budget"
@@ -297,17 +251,89 @@
       </div>
     </div>
 
+    <!-- Add Note / Wish Modal -->
+    <div
+      class="modal fade"
+      id="staticBackdrop5"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdrop5Label"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button
+              type="button"
+              class="btn-close position-absolute top-0 end-0"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              style="margin: 10px; background-color: white"
+            ></button>
+            <h1
+              class="modal-title d-flex justify-content-center"
+              id="staticBackdrop5Label"
+            >
+              Add Note / Wishlist
+            </h1>
+            <div class="wishlist-modal-row">
+              <input
+                id="input-note"
+                type="text"
+                placeholder=" Note / Wish"
+                class="log"
+                style="border-style: hidden; background-color: #c7c7c7; flex: 1 1 200px; min-width: 150px"
+              />
+              <input
+                id="input-note-price"
+                type="number"
+                placeholder=" Price"
+                class="log"
+                min="0"
+                step="0.01"
+                required
+                style="border-style: hidden; background-color: #c7c7c7; width: 160px"
+              />
+              <button
+                id="btn-note"
+                type="button"
+                class="log-btn wishlist-add-btn"
+                data-bs-dismiss="modal"
+                style="padding: 0px 20px 0px 20px; width: auto; background-color: #ffd063; border-radius: 10px; border-style: hidden; color: black; box-shadow: none;"
+              >
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- TODO: Programmatically build this part -->
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-2 section">
-          <h1 style="padding-left: 10px">Notes / Wishlists</h1>
-          <h3>1. Eggs</h3>
-          <h3>2. Pork cuts</h3>
-          <h3>3. Shampoo</h3>
-          <h3>4. Dishwashing soap</h3>
-          <h3>5. Rice</h3>
-          <h3>6. Toilet paper</h3>
+          <div class="wishlist-header" style="padding-left: 10px; display: flex; align-items: left; gap: 10px;">
+            <h1>Notes / Wishlists</h1>
+            <button class="btn btn-sm" style="background: none; font-size: 64px; padding: 0 16px; line-height: 1; border-style: hidden; color: black;" data-bs-toggle="modal" data-bs-target="#staticBackdrop5">+</button>
+          </div>
+          <div id="notes" style="padding-left: 0px; padding-right: 60px;">
+            {% if wishlists %}
+              {% for item in wishlists %}
+                <div class="wishlist-row{% if item.is_bought %} bought{% endif %}" style="padding: 8px 0;">
+                  <div class="form-check">
+                      <input class="form-check-input wishlist-checkbox" type="checkbox" value="{{ item.id }}" id="wishlist-{{ item.id }}" {% if item.is_bought %}checked disabled{% endif %} {% if item.price %}data-price="{{ item.price }}"{% endif %} />
+                      <label class="form-check-label" for="wishlist-{{ item.id }}">
+                        {{ item.title }}{% if item.price %} — P{{ item.price }}{% endif %}
+                      </label>
+                    </div>
+                </div>
+              {% endfor %}
+            {% else %}
+              <p class="wishlist-empty" style="color: #c7c7c7">No notes or wishlist items yet.</p>
+            {% endif %}
+          </div>
         </div>
         <div class="col-lg-6 section">
           <h1 style="padding-left: 10px">Spending Analytics</h1>
@@ -465,31 +491,7 @@
                   class="log col-12"
                 />
                 <input id="input-log-date" type="date" class="log col-12" />
-                <div
-                  class="row g-2 align-items-stretch"
-                  style="width: 100%; margin-top: 10px"
-                >
-                  <div class="col-8 d-flex align-items-stretch">
-                    <select
-                      id="input-log-category"
-                      class="log flex-fill"
-                      style="color: #5c5c5c"
-                    >
-                      <option>Category 1</option>
-                      <option>Category 2</option>
-                      <option>Category 3</option>
-                    </select>
-                  </div>
-                  <div class="col-4 d-flex align-items-stretch">
-                    <button
-                      class="log-btn w-100"
-                      data-bs-toggle="modal"
-                      data-bs-target="#staticBackdrop2"
-                      style="margin-top: 0"
-                    >
-                      Manage
-                    </button>
-                  </div>
+                <div class="row g-2 align-items-stretch" style="width: 100%; margin-top: 10px">
                   <div class="col-12">
                     <button id="btn-log" class="log-btn w-100">
                       Log Expense
